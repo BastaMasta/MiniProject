@@ -7,7 +7,7 @@ var { spawn } = require('child_process');
 http.createServer(function (req, res) {
   if (req.url == '/fileupload' && req.method.toLowerCase() === 'post') {
     var form = new formidable.IncomingForm({
-      uploadDir: 'C:/Users/basta/Documents/fileSite/uploads/', 
+      uploadDir: 'C:/Users/basta/Documents/GitHub/MiniProject/Windows/uploads/', 
       keepExtensions: true, 
       maxFileSize: 50 * 1024 * 1024, // 50MB
       filter: function({name, originalFilename, mimetype}) {
@@ -100,7 +100,7 @@ http.createServer(function (req, res) {
           : customFilename + originalExtension)
         : fileToMove.originalFilename;
 
-      const newFilename = path.join('C:/Users/basta/Documents/fileSite/uploads/', finalFilename || 'uploadedImage');
+      const newFilename = path.join('C:/Users/basta/Documents/GitHub/MiniProject/Windows/uploads/', finalFilename || 'uploadedImage');
       
       fs.rename(fileToMove.filepath, newFilename, function (err) {
         if (err) {
